@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <meta name = "Description" content = "Assignment2 UI-ARUN">
+        <meta name = "Keywords" content = "GAME">
+        <meta name = "Author" content = "Vishal">
+        <title>
+                Assignment2;
+        </title>
+    </head>
+<body>
+    <input type="text" id = "left" name="left" placeholder="input">
+    <input type="text" id = "right" name="right"><br><br><br>
+    <button type="button" name = "moveRight" onclick="myFunction1()">>></button>
+    <button type="button" name = "pause" onclick="myFunction2()">||</button>
+    <button type="button" name = "moveLeft" onclick="myFunction3()"><<</button>
+    
+    <p id = "ExOutput1"></p>
+    <p id = "ExOutput"></p>
+    <p id = "ExOutput2"></p>
+
+    <script >
+    
+    var interval;
+
+    function myFunction1() {
+    
+        clearInterval(interval);
+        interval = setInterval(function(){
+        var inputOriginal = document.getElementById("left").value; 
+        document.getElementById("right").value += inputOriginal.substring(0,1); 
+        document.getElementById("left").value = inputOriginal.substring(1);
+    }, 1000);
+    }
+
+    function myFunction2(){
+
+        clearInterval(interval);
+
+    }
+
+    function myFunction3(){
+        
+        clearInterval(interval);
+        interval = setInterval(function(){
+        var outputOriginal = document.getElementById("right").value; 
+        document.getElementById("left").value = outputOriginal.substring(outputOriginal.length-1) + document.getElementById("left").value; 
+        document.getElementById("right").value = outputOriginal.substring(0, outputOriginal.length-1);
+    }, 1000);
+
+    }
+    </script>
+
+</body>
+</html>
